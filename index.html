@@ -164,11 +164,11 @@
             <div id="ad_calculated_container" style="display: none;">
                 <div class="ad-inputs">
                     <div class="form-group">
-                        <label for="acd">前房深度(ACD)</label>
+                        <label for="acd">前房深度(ACD) mm</label>
                         <input type="number" id="acd" step="0.01" placeholder="例如: 3.75">
                     </div>
                     <div class="form-group">
-                        <label for="cct">角膜厚度(CCT)</label>
+                        <label for="cct">角膜厚度(CCT) μm </label>
                         <input type="number" id="cct" step="0.001" placeholder="例如: 550 (单位为μm)">
                     </div>
                 </div>
@@ -191,11 +191,14 @@
             <p class="result-note"><strong>注意：</strong>此结果仅供理论参考。</p>
         </div>
 
-        <div class="disclaimer">
-            <strong>重要提示：</strong>
-            此计算使用盼兮老师公式: (23.5或调试24-AL)*250+(43-K1)*100-(3.1-AD)*150+(3.6-LT)*150, +为远储 -为近视。当选择计算AD时，公式为 AD=ACD-CCT/1000。仅为理论估值，仅供参考，不可作配镜参数。
-        </div>
-    </div>
+<div class="disclaimer" style="text-align: left;">
+    <strong>重要提示：</strong>
+    <ul style="margin: 0.5em 0 0 1em; padding: 0; list-style-type: disc;">
+        <li>此计算使用盼兮老师公式： (23.5或调试24-AL)*250 + (43-K1)*100 - (3.1-AD)*150 + (3.6-LT)*150。结果+为远储，-为近视。</li>
+        <li>眼轴超过24的，倾向参考AL基准为24的结果。</li>
+        <li>结果仅为理论估算值，仅供参考。不可作为配镜参数。</li>
+    </ul>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
