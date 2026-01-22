@@ -43,14 +43,24 @@
             text-align: center;
         }
 
-        .browser-note {
+        /* 微信浏览器提示条 */
+        #wechatNotice {
+            display: none;
+            text-align: center;
+            padding: 12px;
+            background-color: #fff4e5;
+            border: 1px solid #ffd591;
+            border-radius: 6px;
+            margin-bottom: 15px;
             font-size: 13px;
             color: #d46b08;
-            text-align: center;
-            margin-top: 5px;
-            display: none; /* 默认隐藏，微信浏览器下显示 */
         }
-        
+        #wechatNotice a {
+            color: #d46b08;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
         .form-group { margin-bottom: 20px; }
         .radio-group label { display: inline-block; margin-right: 20px; font-weight: normal; cursor: pointer; }
         label { display: block; font-weight: 600; margin-bottom: 8px; color: #3c4043; }
@@ -112,7 +122,11 @@
     <div class="container">
         <div class="header-nav">
             <h1>屈光度数测算</h1>
-            <p class="browser-note" id="browserNote">⚠️ 微信浏览器访问提示：请复制链接到系统浏览器打开使用</p>
+        </div>
+
+        <!-- 微信浏览器提示 -->
+        <div id="wechatNotice">
+            ⚠️ 微信浏览器访问提示：<a href="https://maggiec87.github.io/degree_calculator/" target="_blank">点击这里在浏览器打开</a>
         </div>
         
         <form id="myopiaForm">
@@ -183,18 +197,11 @@
             const resultContainer = document.getElementById('resultContainer');
             const result1Element = document.getElementById('result1');
             const result2Element = document.getElementById('result2');
-            const browserNote = document.getElementById('browserNote');
+            const wechatNotice = document.getElementById('wechatNotice');
 
             // 微信浏览器检测
-            function isWeChatBrowser() {
-                return /MicroMessenger/i.test(navigator.userAgent);
-            }
-
-            if (isWeChatBrowser()) {
-                // 显示标题下方提示
-                browserNote.style.display = 'block';
-                // 弹窗提醒
-                alert('⚠️ 友情提示：您当前在微信内打开页面，请复制以下链接到浏览器使用：\n\nhttps://maggiec87.github.io/degree_calculator/');
+            if (/MicroMessenger/i.test(navigator.userAgent)) {
+                wechatNotice.style.display = 'block';
             }
 
             const adOptions = document.querySelectorAll('input[name="ad_option"]');
